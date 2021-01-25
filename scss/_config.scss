@@ -1,3 +1,10 @@
+$text-color: #333333;
+$black: #000000;
+$gray2: #4f4f4f;
+$gray4: #bdbdbd;
+$orange: #f2994a;
+$size: 2.25rem;
+
 html {
   margin: 0;
   padding: 0;
@@ -14,6 +21,43 @@ img {
   max-width: 100%;
 }
 
+$font-families: (
+  "playfair": "Playfair Display",
+  "montserrat": "Montserrat",
+);
+
+$font-styles: (
+  "normalStyle": normal,
+  "italicStyle": italic,
+);
+
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+$font-sizes: (
+  "8": 0.5rem,
+  "10": 0.625rem,
+  "12": 0.75rem,
+  "14": 0.875rem,
+  "16": 1rem,
+  "18": 1.125rem,
+  "24": 1.5rem,
+);
+
+$line-heights: (
+  "10": 0.625rem,
+  "12": 0.75rem,
+  "15": 0.9375rem,
+  "18": 1.125rem,
+  "21": 1.3125rem,
+  "24": 1.5rem,
+  "25": 1.5625rem,
+  "32": 2rem,
+);
+
 .text-bold-black {
-  font-weight: bold;
+  font-weight: 700;
 }

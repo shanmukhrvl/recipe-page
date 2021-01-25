@@ -1,13 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
+
 @import "config";
 
+@function family($family-name) {
+  @return map-get($font-families, $family-name);
+}
+
+@function style($style-name) {
+  @return map-get($font-styles, $style-name);
+}
+
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+@function size($size-name) {
+  @return map-get($font-sizes, $size-name);
+}
+
+@function height($height-name) {
+  @return map-get($line-heights, $height-name);
+}
+
 body {
+  font-family: family(montserrat);
   background: #fafafa;
+  color: $text-color;
 }
 
 .container {
-  width: 95%;
+  width: 96%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: family(playfair);
+  font-weight: weight(bold);
+  font-style: style(normalStyle);
+}
+
+.header {
+  &__title {
+    font-size: size("24");
+    line-height: height("32");
+    color: $black;
+  }
+
+  &__description {
+    font-style: style(italicStyle);
+    font-weight: weight(medium);
+    font-size: size("12");
+    line-height: height("15");
+    color: $gray2;
+  }
 }
 
 .item {
@@ -20,9 +67,27 @@ body {
     }
   }
 
+  .servings__title,
+  .time__title {
+    font-style: style(normalStyle);
+    font-weight: weight(bold);
+    font-size: size("8");
+    line-height: height("10");
+    text-transform: uppercase;
+    color: $gray4;
+  }
+
+  .servings__qty,
+  .time--taken {
+    font-style: style(normalStyle);
+    font-weight: weight(medium);
+    font-size: size("10");
+    line-height: height("12");
+  }
+
   &__servings {
-    .servings--title,
-    .servings--qty {
+    .servings__title,
+    .servings__qty {
       margin: 0;
     }
   }
@@ -33,7 +98,7 @@ body {
     justify-content: space-between;
     margin: 2em auto;
 
-    .prep--time {
+    .total--time {
       .time__title,
       .time--taken {
         margin: 0;
@@ -43,14 +108,101 @@ body {
 }
 
 .ingredients {
-  &__sub--part {
-    .part__list ul {
-      list-style: none;
-      padding-inline-start: 0;
+  h2 {
+    font-size: size("18");
+    line-height: height("24");
+  }
 
-      li {
-        margin: 1em 0;
+  &__sub--part {
+    .part__title {
+      font-family: family(playfair);
+      font-style: style(italicStyle);
+      font-weight: weight(regular);
+      font-size: size("16");
+      line-height: height("21");
+    }
+
+    .part__list {
+      ul {
+        list-style: none;
+        padding-inline-start: 0;
+
+        li {
+          margin: 1em 0;
+
+          label {
+            font-style: style(normal);
+            font-weight: weight(regular);
+            font-size: size("14");
+            line-height: height("25");
+
+            .toppings--style {
+              font-weight: weight(medium);
+              font-style: style(italicStyle);
+            }
+          }
+        }
       }
     }
   }
+}
+
+.instructions {
+  h2 {
+    font-size: ("24");
+    line-height: ("32");
+  }
+
+  li {
+    font-style: style(normal);
+    font-weight: (regular);
+    font-size: size("16");
+    line-height: height("24");
+    color: $black;
+  }
+
+  ol {
+    max-width: 350px;
+    counter-reset: my-awesome-counter;
+    list-style: none;
+    padding-inline-start: 50px;
+  }
+  ol li {
+    margin: 0 0 0.5em 0;
+    counter-increment: my-awesome-counter;
+    position: relative;
+  }
+  ol li::before {
+    content: counter(my-awesome-counter);
+    color: #ffffff;
+    font-family: family(playfair);
+    font-size: size("24");
+    font-weight: weight(bold);
+    line-height: height("32");
+    position: absolute;
+    left: -$size - 0.75rem;
+    width: $size;
+    height: $size;
+    top: 0;
+    background: $orange;
+    border-radius: 6px;
+    text-align: center;
+  }
+}
+
+.source {
+  font-style: style(italicStyle);
+  font-weight: weight(regular);
+  font-size: size("12");
+  line-height: height("18");
+  color: $gray4;
+}
+
+.footer p {
+  text-align: center;
+  font-style: normal;
+  font-weight: weight(medium);
+  font-size: 0.875rem;
+  line-height: 1rem;
+  color: #a9a9a9;
 }
