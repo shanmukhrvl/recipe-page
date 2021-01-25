@@ -9,3 +9,11 @@ html {
 *::after {
   box-sizing: border-box;
 }
+
+img {
+  max-width: 100%;
+}
+
+.text-bold-black {
+  font-weight: bold;
+}

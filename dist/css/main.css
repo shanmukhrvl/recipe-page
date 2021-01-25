@@ -11,4 +11,65 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+img {
+  max-width: 100%;
+}
+
+.text-bold-black {
+  font-weight: bold;
+}
+
+body {
+  background: #fafafa;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item__img {
+  margin: 2em auto;
+}
+
+.item__img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.item__servings .servings--title,
+.item__servings .servings--qty {
+  margin: 0;
+}
+
+.item__duration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2em auto;
+}
+
+.item__duration .prep--time .time__title,
+.item__duration .prep--time .time--taken {
+  margin: 0;
+}
+
+.ingredients__sub--part .part__list ul {
+  list-style: none;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+.ingredients__sub--part .part__list ul li {
+  margin: 1em 0;
+}
 /*# sourceMappingURL=main.css.map */

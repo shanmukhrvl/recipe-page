@@ -1,1 +1,56 @@
 @import "config";
+
+body {
+  background: #fafafa;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item {
+  &__img {
+    margin: 2em auto;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__servings {
+    .servings--title,
+    .servings--qty {
+      margin: 0;
+    }
+  }
+
+  &__duration {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2em auto;
+
+    .prep--time {
+      .time__title,
+      .time--taken {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.ingredients {
+  &__sub--part {
+    .part__list ul {
+      list-style: none;
+      padding-inline-start: 0;
+
+      li {
+        margin: 1em 0;
+      }
+    }
+  }
+}
