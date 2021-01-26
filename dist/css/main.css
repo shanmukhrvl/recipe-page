@@ -21,6 +21,53 @@ img {
   font-weight: 700;
 }
 
+@media (min-width: 700px) {
+  .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .item--info {
+    width: 20%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: auto;
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  .item--info .item__servings {
+    margin-top: 2em;
+  }
+  .item--info .item__duration {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .item--info .item__duration .total--time + .total--time {
+    margin-top: 1.5em;
+  }
+  .item--prep {
+    width: 65%;
+  }
+}
+
 body {
   font-family: "Montserrat";
   background: #fafafa;
@@ -44,14 +91,42 @@ h2 {
   font-size: 1.5rem;
   line-height: 2rem;
   color: #000000;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 760px) {
+  .header__title {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
 }
 
 .header__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__description p {
   font-style: italic;
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 0.9375rem;
   color: #4f4f4f;
+  margin: 0;
+}
+
+@media (min-width: 760px) {
+  .header__description p {
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+  }
+}
+
+.header__description .dots {
+  margin: 0.2em 1em 0 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .item__img {
@@ -64,8 +139,8 @@ h2 {
      object-fit: cover;
 }
 
-.item .servings__title,
-.item .time__title {
+.item--info .servings__title,
+.item--info .time__title {
   font-style: normal;
   font-weight: 700;
   font-size: 0.5rem;
@@ -74,43 +149,82 @@ h2 {
   color: #bdbdbd;
 }
 
-.item .servings__qty,
-.item .time--taken {
+@media (min-width: 760px) {
+  .item--info .servings__title,
+  .item--info .time__title {
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+  }
+}
+
+.item--info .servings__qty,
+.item--info .time--taken {
   font-style: normal;
   font-weight: 500;
   font-size: 0.625rem;
   line-height: 0.75rem;
 }
 
-.item__servings .servings__title,
-.item__servings .servings__qty {
-  margin: 0;
+@media (min-width: 760px) {
+  .item--info .servings__qty,
+  .item--info .time--taken {
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+  }
 }
 
-.item__duration {
+.item--info .item__servings,
+.item--info .total--time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 2em auto;
 }
 
-.item__duration .total--time .time__title,
-.item__duration .total--time .time--taken {
+.item--info .material-icons {
+  margin-right: 0.25em;
+}
+
+.item--info .item__servings .material-icons {
+  color: #f2994a;
+}
+
+.item--info .item__servings .servings__title,
+.item--info .item__servings .servings__qty {
   margin: 0;
 }
 
-.ingredients h2 {
+.item--info .item__servings .servings__qty {
+  color: #f2994a;
+}
+
+.item--info .item__duration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1.5em auto;
+}
+
+.item--info .item__duration .total--time .time__title,
+.item--info .item__duration .total--time .time--taken {
+  margin: 0;
+}
+
+.item--prep .ingredients h2 {
   font-size: 1.125rem;
   line-height: 1.5rem;
 }
 
-.ingredients__sub--part .part__title {
+@media (min-width: 760px) {
+  .item--prep .ingredients h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.item--prep .ingredients__sub--part .part__title {
   font-family: "Playfair Display";
   font-style: italic;
   font-weight: 400;
@@ -118,54 +232,74 @@ h2 {
   line-height: 1.3125rem;
 }
 
-.ingredients__sub--part .part__list ul {
+@media (min-width: 760px) {
+  .item--prep .ingredients__sub--part .part__title {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+}
+
+.item--prep .ingredients__sub--part .part__list ul {
   list-style: none;
   -webkit-padding-start: 0;
           padding-inline-start: 0;
 }
 
-.ingredients__sub--part .part__list ul li {
+.item--prep .ingredients__sub--part .part__list ul li {
   margin: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.ingredients__sub--part .part__list ul li label {
+.item--prep .ingredients__sub--part .part__list ul li .checkBox {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  margin-top: 0.4em;
+}
+
+.item--prep .ingredients__sub--part .part__list ul li label {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5625rem;
+  margin-left: 1.5em;
 }
 
-.ingredients__sub--part .part__list ul li label .toppings--style {
+@media (min-width: 760px) {
+  .item--prep .ingredients__sub--part .part__list ul li label {
+    font-size: 1rem;
+    line-height: 1.5625rem;
+  }
+}
+
+.item--prep .ingredients__sub--part .part__list ul li label .toppings--style {
   font-weight: 500;
   font-style: italic;
 }
 
-.instructions h2 {
+.item--prep .instructions h2 {
   font-size: "24";
   line-height: "32";
 }
 
-.instructions li {
-  font-weight: regular;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: #000000;
-}
-
-.instructions ol {
-  max-width: 350px;
+.item--prep .instructions ol {
   counter-reset: my-awesome-counter;
   list-style: none;
   -webkit-padding-start: 50px;
           padding-inline-start: 50px;
 }
 
-.instructions ol li {
-  margin: 0 0 0.5em 0;
+.item--prep .instructions ol li {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #000000;
+  margin: 0 0 2em 0;
   counter-increment: my-awesome-counter;
   position: relative;
 }
 
-.instructions ol li::before {
+.item--prep .instructions ol li::before {
   content: counter(my-awesome-counter);
   color: #ffffff;
   font-family: "Playfair Display";

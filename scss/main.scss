@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
 
 @import "config";
+@import "responsive";
 
 @function family($family-name) {
   @return map-get($font-families, $family-name);
@@ -46,27 +47,48 @@ h2 {
     font-size: size("24");
     line-height: height("32");
     color: $black;
-  }
+    margin-bottom: 0.75rem;
 
-  &__description {
-    font-style: style(italicStyle);
-    font-weight: weight(medium);
-    font-size: size("12");
-    line-height: height("15");
-    color: $gray2;
-  }
-}
-
-.item {
-  &__img {
-    margin: 2em auto;
-
-    img {
-      width: 100%;
-      object-fit: cover;
+    @media (min-width: 760px) {
+      font-size: 3rem;
+      line-height: 4rem;
     }
   }
 
+  &__description {
+    display: flex;
+
+    p {
+      font-style: style(italicStyle);
+      font-weight: weight(medium);
+      font-size: size("12");
+      line-height: height("15");
+      color: $gray2;
+      margin: 0;
+
+      @media (min-width: 760px) {
+        font-size: size("14");
+        line-height: height("17");
+      }
+    }
+
+    .dots {
+      margin: 0.2em 1em 0 0;
+      align-self: flex-start;
+    }
+  }
+}
+
+.item__img {
+  margin: 2em auto;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.item--info {
   .servings__title,
   .time__title {
     font-style: style(normalStyle);
@@ -75,6 +97,11 @@ h2 {
     line-height: height("10");
     text-transform: uppercase;
     color: $gray4;
+
+    @media (min-width: 760px) {
+      font-size: size("10");
+      line-height: size("12");
+    }
   }
 
   .servings__qty,
@@ -83,20 +110,41 @@ h2 {
     font-weight: weight(medium);
     font-size: size("10");
     line-height: height("12");
+
+    @media (min-width: 760px) {
+      font-size: size("14");
+      line-height: height("17");
+    }
   }
 
-  &__servings {
+  .item__servings,
+  .total--time {
+    display: flex;
+  }
+
+  .material-icons {
+    margin-right: 0.25em;
+  }
+
+  .item__servings {
+    .material-icons {
+      color: $orange;
+    }
+
     .servings__title,
     .servings__qty {
       margin: 0;
     }
+
+    .servings__qty {
+      color: $orange;
+    }
   }
 
-  &__duration {
+  .item__duration {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin: 2em auto;
+    margin: 1.5em auto;
 
     .total--time {
       .time__title,
@@ -107,86 +155,109 @@ h2 {
   }
 }
 
-.ingredients {
-  h2 {
-    font-size: size("18");
-    line-height: height("24");
-  }
+.item--prep {
+  .ingredients {
+    h2 {
+      font-size: size("18");
+      line-height: height("24");
 
-  &__sub--part {
-    .part__title {
-      font-family: family(playfair);
-      font-style: style(italicStyle);
-      font-weight: weight(regular);
-      font-size: size("16");
-      line-height: height("21");
+      @media (min-width: 760px) {
+        font-size: size("24");
+        line-height: height("32");
+      }
     }
 
-    .part__list {
-      ul {
-        list-style: none;
-        padding-inline-start: 0;
+    &__sub--part {
+      .part__title {
+        font-family: family(playfair);
+        font-style: style(italicStyle);
+        font-weight: weight(regular);
+        font-size: size("16");
+        line-height: height("21");
 
-        li {
-          margin: 1em 0;
+        @media (min-width: 760px) {
+          font-size: size("18");
+          line-height: height("24");
+        }
+      }
 
-          label {
-            font-style: style(normal);
-            font-weight: weight(regular);
-            font-size: size("14");
-            line-height: height("25");
+      .part__list {
+        ul {
+          list-style: none;
+          padding-inline-start: 0;
 
-            .toppings--style {
-              font-weight: weight(medium);
-              font-style: style(italicStyle);
+          li {
+            margin: 1em 0;
+            display: flex;
+
+            .checkBox {
+              transform: scale(1.5);
+              margin-top: 0.4em;
+            }
+
+            label {
+              font-style: style(normal);
+              font-weight: weight(regular);
+              font-size: size("14");
+              line-height: height("25");
+              margin-left: 1.5em;
+
+              @media (min-width: 760px) {
+                font-size: size("16");
+                line-height: height("25");
+              }
+
+              .toppings--style {
+                font-weight: weight(medium);
+                font-style: style(italicStyle);
+              }
             }
           }
         }
       }
     }
   }
-}
 
-.instructions {
-  h2 {
-    font-size: ("24");
-    line-height: ("32");
-  }
+  .instructions {
+    h2 {
+      font-size: ("24");
+      line-height: ("32");
+    }
 
-  li {
-    font-style: style(normal);
-    font-weight: (regular);
-    font-size: size("16");
-    line-height: height("24");
-    color: $black;
-  }
+    ol {
+      counter-reset: my-awesome-counter;
+      list-style: none;
+      padding-inline-start: 50px;
 
-  ol {
-    max-width: 350px;
-    counter-reset: my-awesome-counter;
-    list-style: none;
-    padding-inline-start: 50px;
-  }
-  ol li {
-    margin: 0 0 0.5em 0;
-    counter-increment: my-awesome-counter;
-    position: relative;
-  }
-  ol li::before {
-    content: counter(my-awesome-counter);
-    color: #ffffff;
-    font-family: family(playfair);
-    font-size: size("24");
-    font-weight: weight(bold);
-    line-height: height("32");
-    position: absolute;
-    left: -$size - 0.75rem;
-    width: $size;
-    height: $size;
-    top: 0;
-    background: $orange;
-    border-radius: 6px;
-    text-align: center;
+      li {
+        font-style: style(normal);
+        font-weight: weight(regular);
+        font-size: size("16");
+        line-height: height("24");
+        color: $black;
+        margin: 0 0 2em 0;
+
+        counter-increment: my-awesome-counter;
+        position: relative;
+      }
+
+      li::before {
+        content: counter(my-awesome-counter);
+        color: #ffffff;
+        font-family: family(playfair);
+        font-size: size("24");
+        font-weight: weight(bold);
+        line-height: height("32");
+        position: absolute;
+        left: -$size - 0.75rem;
+        width: $size;
+        height: $size;
+        top: 0;
+        background: $orange;
+        border-radius: 6px;
+        text-align: center;
+      }
+    }
   }
 }
 
