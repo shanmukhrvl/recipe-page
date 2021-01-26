@@ -15,7 +15,7 @@
       Solution
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-challenge}">
+    <a href="https://devchallenges.io/solutions/ZGFMiM7Gs1Ns1z41SwAB">
       Challenge
     </a>
   </h3>
@@ -39,9 +39,8 @@
 
 
 - You can see the demo [here](https://recipepagedemo.netlify.app/)
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+- I learned Sass and implemented it for the first time
+- The experience of building with Sass is really nice, and i am improving my skills to write the code in much better way
 
 ### Built With
 
